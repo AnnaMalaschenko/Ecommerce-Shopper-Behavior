@@ -1,3 +1,7 @@
+## Methodologies
+Clustering to segment observations, or dimensionality reduction, to understand structure.
+Logistic Regression and Random Forest for supervised learning.
+
 ## Data Source: 
 https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
 
