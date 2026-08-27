@@ -1,6 +1,6 @@
 ## Methodologies
-Clustering to segment observations, or dimensionality reduction, to understand structure.
-Logistic Regression and Random Forest for supervised learning.
+Build a logistic regression model to predict if a purchase will happen during a shopping session.
+Identify the biggest contributors to sessions ending in a purchase.
 
 ## Data Source: 
 https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
@@ -22,11 +22,10 @@ Informational_Duration
 ProductRelated_Duration
 
 They each have almost 1,000 or more outliers out of ~12,000 rows, making up a significant part of the dataset.
-The task at hand while exploring these variables was to investigate for obvious signs of sessions that were inactive for a long time - such as when a user may tab out and not be actively browsing, which, if unaccounted for, may add noise to the model.
-The percent of sessions with a favorable outcome inside of those outliers are *higher* than in the full dataset, and therefore were not all outright dropped.
-My concern being that, since I want interpretability from this model via logistic regression, my coefficients for these durations may be noisy due to these outliers.
+The percent of sessions with a favorable outcome inside of those outliers are *higher* than in the full dataset, and therefore were not outright dropped.
+The task at hand while exploring these variables was to investigate for obvious signs of sessions that were either inactive for a long time - such as when a user may tab out and not be actively browsing, or bot sessions, which are unrepresentative of a typical user and add noise to the data.
+After performing the EDA, only a few rows were dropped, and the rest were kept due to no clear sign of them landing in one of the problem buckets I've described.
 
-Variations of Duration Handling That Can Further Be Tried and Compared:
-Winsorizing would cap the durations to a max, giving me a more reliable coefficient while not eliminating the rows, and still exposing the model to high durations. Try a model both including this method and not to see if this improves it.
-Use PCA on sessions with outlier duration to identify common patterns and behaviors that could indicate bot activity or tabbed out users.
-
+If I'm to go back and experiment, a few options are:
+1) Winsorizing - which would cap the durations to a max, giving me a more reliable coefficient while not eliminating the rows, and still exposing the model to high durations. I'd compare the model's metrics to one without this implementation.
+2) Use PCA on the outlier durations to identify common patterns and behaviors which could help identify atypical sessions.
