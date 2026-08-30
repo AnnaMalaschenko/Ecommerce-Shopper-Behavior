@@ -1,6 +1,10 @@
 ## Methodologies
-Build a logistic regression model to predict if a purchase will happen during a shopping session.
-Identify the biggest contributors to sessions ending in a purchase.
+Perform in-depth exploratory data analysis on 12.3k completed e-commerce browsing sessions and 18 variables/ characteristics.
+Clean and pre-process the data- engineering new features, dropping irrelevant columns, and transforming data for modeling.
+Use unsupervised and supervised machine learning models to better understand the underlying patterns in the data.
+
+This analysis is not for predicting purchase intent mid-session.
+The goal is to identify what *drives* purchase intent, by creating a logistic regression model and evaluating it's coefficients to identify key purchase drivers.
 
 ## Data Source: 
 https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
