@@ -1,13 +1,17 @@
 ## Overview
-Perform in-depth exploratory data analysis on 12.3k completed e-commerce browsing sessions and 18 variables/ characteristics.
-Clean and pre-process the data- engineering new features, dropping irrelevant columns, and transforming data for modeling.
+Perform in-depth exploratory data analysis on ~12,000 completed e-commerce browsing sessions and 18 variables/ characteristics.
+Clean and pre-process the data, engineering new features, dropping irrelevant columns, and transforming data for modeling.
 Use unsupervised and supervised machine learning models to better understand the underlying patterns in the data. See the final report under results/reports for a detailed breakdown of the findings.
 
 This analysis is not for predicting purchase intent mid-session.
-The goal is to identify what *drives* purchase intent, by creating a logistic regression model and evaluating it's coefficients to identify key purchase drivers.
+The goal is to identify what *drives* purchase intent, by creating a logistic regression model and evaluating its coefficients to identify key purchase drivers.
 
-## Final Dashboard of the Findings
-https://public.tableau.com/app/profile/anna.malaschenko/viz/E-commerceShopperData/Dashboard1#1
+## Repo Structure
+data/ - Raw and processed datasets
+notebooks/ - EDA, preprocessing, and modeling notebooks
+results/data - Saved model output data for Tableau
+results/images - Charts and dashboard
+results/reports - Final report
 
 ## Data Source: 
 https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
@@ -15,14 +19,21 @@ https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dat
 ## Data Dictionary
 "Administrative", "Informational", "Product Related" - Type of page visited in the session
 "Administrative Duration", "Informational Duration", "Product Related Duration" - How long each page was visited for in the session.
-"Bounce Rate" - percentage of visitors who enter the site from that page and then leave ("bounce") without triggering any other requests to the analytics server during that session. Bounce rates seem to be some aggregation of values for the different pages visited during a session - with the type of aggregation not having been specified (ie. average vs sum).
+"Bounce Rate" - percentage of visitors who enter the site from that page and then leave ("bounce") without triggering any other requests to the analytics server during that session.
 "Exit Rate" - percentage of time the page was the last in the session.
 "Page Value" - represents the average value for a web page that a user visited before completing an e-commerce transaction. 
 "Special Day" - indicates the closeness of the site visiting time to a specific special day (e.g. Mother’s Day, Valentine's Day).
 
-## Areas for Further Exploration
+## Setup
+### Requirements
+pandas, numpy, scikit-learn, matplotlib, seaborn, scipy, statsmodels
+Run notebooks in order: anna_eda.ipynb -> preprocessing_v1.ipynb -> model_v1.ipynb -> preprocessing_v2.ipynb -> model_v2.ipynb
 
-The dataset columns are highly right-skewed:
+## Final Dashboard of the Findings
+https://public.tableau.com/app/profile/anna.malaschenko/viz/E-commerceShopperData/Dashboard1#1
+
+## Areas for Further Exploration
+These dataset columns are highly right-skewed:
 
 Administrative_Duration
 Informational_Duration
