@@ -1,10 +1,13 @@
-## Methodologies
+## Overview
 Perform in-depth exploratory data analysis on 12.3k completed e-commerce browsing sessions and 18 variables/ characteristics.
 Clean and pre-process the data- engineering new features, dropping irrelevant columns, and transforming data for modeling.
-Use unsupervised and supervised machine learning models to better understand the underlying patterns in the data.
+Use unsupervised and supervised machine learning models to better understand the underlying patterns in the data. See the final report under results/reports for a detailed breakdown of the findings.
 
 This analysis is not for predicting purchase intent mid-session.
 The goal is to identify what *drives* purchase intent, by creating a logistic regression model and evaluating it's coefficients to identify key purchase drivers.
+
+## Final Dashboard of the Findings
+https://public.tableau.com/app/profile/anna.malaschenko/viz/E-commerceShopperData/Dashboard1#1
 
 ## Data Source: 
 https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
@@ -25,11 +28,6 @@ Administrative_Duration
 Informational_Duration
 ProductRelated_Duration
 
-They each have almost 1,000 or more outliers out of ~12,000 rows, making up a significant part of the dataset.
-The percent of sessions with a favorable outcome inside of those outliers are *higher* than in the full dataset, and therefore were not outright dropped.
-The task at hand while exploring these variables was to investigate for obvious signs of sessions that were either inactive for a long time - such as when a user may tab out and not be actively browsing, or bot sessions, which are unrepresentative of a typical user and add noise to the data.
-After performing the EDA, only a few rows were dropped, and the rest were kept due to no clear sign of them landing in one of the problem buckets I've described.
+After EDA, There were no obvious signs of time out or bot sessions. These variables were especially interesting however, as each type of page had ~1,000 or more outliers out of ~12,000 rows, making up a significant part of the dataset. The percent of sessions with a favorable purchase outcome inside of those outliers were *higher* (up to 2x) than that of the full dataset, and therefore were not outright dropped. Exploration and modeling can be done on the outlier sessions alone in order to identify any trends and patterns among them. 
 
-If I'm to go back and experiment, a few options are:
-1) Winsorizing - which would cap the durations to a max, giving me a more reliable coefficient while not eliminating the rows, and still exposing the model to high durations. I'd compare the model's metrics to one without this implementation.
-2) Use PCA on the outlier durations to identify common patterns and behaviors which could help identify atypical sessions.
+After modeling the data, it was clear that page durations for each type of page were some of the *least* influential variables for the model's outcome, and thus digging deeper into these outliers will be left for a different day.

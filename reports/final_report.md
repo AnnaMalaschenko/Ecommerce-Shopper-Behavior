@@ -1,3 +1,0 @@
-## Findings
-
-PageValues is the single largest contributor to purchase predictions- with higher page values substantially increasing the odds of a purchase in a session. Since PageValues was log-transformed and scaled during preprocessing, it's odds ratio (3.56x per scale unit) is less interpretable than the rest of the top 10 predictive features (all binary). However, It's direction is clear (higher PageValues -> higher odds of purchase), and it's magnitude of affect is supported by findings via the k-means model (Cluster 0 had exceptionally high Page Values, and a purchase rate of 62% across it's 1651 sessions)
