@@ -24,7 +24,7 @@ The 'Revenue' attribute can be used as the class label.
 ## Setup
 ### Requirements
 pandas, numpy, scikit-learn, matplotlib, seaborn, scipy, statsmodels
-Run notebooks in order: anna_eda.ipynb -> preprocessing_v1.ipynb -> model_v1.ipynb -> preprocessing_v2.ipynb -> model_v2.ipynb
+Run notebooks in order: anna_eda.ipynb -> preprocessing_v1.ipynb -> model_v1.ipynb -> preprocessing_v2_month_bucketing.ipynb -> model_v2.ipynb
 
 ## Final Dashboard of the Findings
 https://public.tableau.com/app/profile/anna.malaschenko/viz/E-commerceShopperData/Dashboard1#1
