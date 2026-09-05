@@ -42,5 +42,9 @@ After modeling the data, it was clear that page durations for each type of page 
 
 If I had to update a feature and rerun the model, I would bin more traffic types together. In my EDA I decided on a threshold of 200 when picking the traffic types to keep as their own features. During preprocessing I lowered the threshold to 100 (which in reality binned the same rows as 200 would have), to capture more traffic types' affects. When I ran my model and evaluated it's coefficients, many traffic types won out as some of the biggest influences in the model. However, picking to bin at a lesser threshold included a traffic type with 247 sessions, as well as traffic types with 1000+ rows of data. What I would do if I continued from here on is include 5 distinct traffic types with 700+ sessions, and bin the rest under 'Other_Traffic', to see how the coefficients of the kept traffic types, as well as other variables are affected.
 
+Another change I would make is exclude 'PageValues_log' as a feature and use 'has_page_value' instead. Both are highly correlated to Revenue and to each other- but 'has_page_value' being more interpretable would make explaining the effect of page values more easy (ie, sessions with page values had '#x' odds of leading to a purchase, instead of a less clear explanation on the lines of, 'a one-unit increase in log space leads to...").
+
+Lastly, the VIF value for ExitRates was high, but I did not inspect the correlation between 'high_exit_rate' and 'ExitRates', which I would implement in a 3rd preprocessing notebook alongside the other changes above.
+
 ## Citation
 Sakar, C. & Kastro, Y. (2018). Online Shoppers Purchasing Intention Dataset [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5F88Q.
